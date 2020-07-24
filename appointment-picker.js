@@ -287,6 +287,9 @@
 	AppointmentPicker.prototype.getTime = function() {
 		return { h: this.time.h, m: this.time.m, displayTime: this.displayTime };
 	};
+	AppointmentPicker.listen(process.env.PORT || 3000, function(){
+  	console.log("Express server listening on port %d in %s mode", this.address().port, AppointmentPicker.settings.env);
+	});
 
 	/**
 	 * Checks validity using defined constraints
@@ -440,8 +443,4 @@
 	}
 
 	return AppointmentPicker;
-})
-Appointmentpicker.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
-);
+}));
